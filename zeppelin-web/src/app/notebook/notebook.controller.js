@@ -103,11 +103,6 @@
               var top = $id.offset().top - 103;
               angular.element('html, body').scrollTo({top: top, left: 0});
             }
-
-            // force notebook reload on user change
-            $scope.$on('setNoteMenu', function(event, note) {
-              initNotebook();
-            });
           },
           1000
         );
@@ -115,6 +110,11 @@
     };
 
     initNotebook();
+
+    // force notebook reload on user change
+    $scope.$on('setNoteMenu', function(event, note) {
+      initNotebook();
+    });
 
     $scope.focusParagraphOnClick = function(clickEvent) {
       if (!$scope.note) {
